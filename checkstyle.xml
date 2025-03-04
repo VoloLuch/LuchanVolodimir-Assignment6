@@ -4,6 +4,13 @@
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
+    <!-- Checks for file length -->
+    <module name="FileLength"/>
+    <!-- Checks for line length -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+    </module>
+
     <module name="TreeWalker">
         <!-- Checks for Javadoc comments -->
         <module name="JavadocMethod"/>
@@ -14,17 +21,17 @@
         <!-- Checks for illegal imports -->
         <module name="IllegalImport"/>
         <!-- Checks for naming conventions -->
-        <module name="NamingConvention"/>
+        <module name="ConstantName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
         <!-- Checks for whitespace around operators -->
         <module name="WhitespaceAround"/>
         <!-- Checks for empty blocks of code -->
         <module name="EmptyBlock"/>
-        <!-- Checks for file length -->
-        <module name="FileLength"/>
-        <!-- Checks for line length -->
-        <module name="LineLength">
-            <property name="max" value="120"/>
-        </module>
         <!-- Checks for method length -->
         <module name="MethodLength"/>
         <!-- Checks for parameter number in methods -->
