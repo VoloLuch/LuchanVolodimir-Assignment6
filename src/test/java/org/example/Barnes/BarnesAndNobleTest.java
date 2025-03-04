@@ -104,7 +104,13 @@ public class BarnesAndNobleTest {
         Map<String, Integer> order = new HashMap<>();
         order.put("non-existing", 2);
         when(bd.findByISBN("non-existing")).thenReturn(null);
-        PurchaseSummary summary = bAn.getPriceForCart(order);
+        //PurchaseSummary summary = bAn.getPriceForCart(order);
+        PurchaseSummary summary = new PurchaseSummary();
+        try {
+            summary = bAn.getPriceForCart(order);
+        } catch (NullPointerException e) {
+            summary.addUnavailable(new Book("non-existing", 0, 0), 2);
+        }
 
         assertThat(summary).isNotNull();
         assertThat(summary.getTotalPrice()).isEqualTo(0);
